@@ -1,8 +1,11 @@
 #data preprocessing
+
 df = pd.read_csv("Total.csv")
+
 dic = {"state": [df.iloc[i][0] for i in range(df.shape[0])],
        "stores": [df.iloc[i][1] for i in range(df.shape[0])],
        "year": [2019 for i in range(df.shape[0])]}
+       
 df_19 = pd.DataFrame(dic)
 
 dic = {"state": [df.iloc[i][0] for i in range(df.shape[0])],
@@ -15,28 +18,39 @@ dic = {"state": [df.iloc[i][0] for i in range(df.shape[0])],
        "year": [2021 for i in range(df.shape[0])]}
 df_21 = pd.DataFrame(dic)
 
-# order is not important, so just append
+
+
+#order is not important, so just append
 df_all = df_19.append(df_20.append(df_21))
+
 print(df_all)
+
 df_all.to_csv("totaldf.csv", index = True)
-```
 
 
-```
+
 #assign each state to the nearest DC
+
+
 import pandas as pd
+
 df = pd.read_csv("state_co_1.csv")
 
 #latitude and longitude
+
 dic_s = {df.iloc[i][0].split(",")[0]:[round(df.iloc[i][1],2),round(df.iloc[i][2],2)] for i in range(df.shape[0])} 
+
 #print(dic_s.items())
 
-wh = pd.read_csv("wh.csv") #latitude and longitude of DCs
-# print(wh.iloc[1][1])
+wh = pd.read_csv("wh.csv") 
+#latitude and longitude of DCs
+
+
 dic_w = {wh.iloc[i][0]:[round(wh.iloc[i][1],2),round(wh.iloc[i][2],2)] for i in range(wh.shape[0])}
 print(dic_w.items())
 
-from haversine import haversine, Unit #
+from haversine import haversine, Unit 
+
 distribute = {}
 for i,j in dic_s.items(): 
     dis_dic = {}
@@ -54,18 +68,15 @@ dic = {"state": [i for i in distribute.keys()],
 
 table = (pd.DataFrame(dic))
 table.to_csv("belong_t.csv")
-```
 
 
-
-```
 # Applied KNN
 import numpy as np
 import matplotlib.pyplot as plt
 import random
 
-x = [round(df.iloc[i][1],2) for i in range(df.shape[0])] #所有經度
-y = [round(df.iloc[i][2],2) for i in range(df.shape[0])] #所有緯度, 或相反XD
+x = [round(df.iloc[i][1],2) for i in range(df.shape[0])] 
+y = [round(df.iloc[i][2],2) for i in range(df.shape[0])] 
 
 seed_num = 5  #num of DC
 dot_num = df.shape[0] 
@@ -82,9 +93,9 @@ def dis(x, y, kx, ky):
 # clustering
 def cluster(x, y, kx, ky):
     team = []
-    for i in range(seed_num):  #這邊原本是3, 寫程式的時候這種操控變數最好不要直接打; 不然要改會麻煩的要死
+    for i in range(seed_num):  
         team.append([])
-    mid_dis = 99999999  #這邊用一個很大的數字來做初始值, 如果距離都超大那這邊就會錯
+    mid_dis = 99999999  
     for i in range(dot_num):
         for j in range(seed_num):
             distant = dis(x[i], y[i], kx[j], ky[j])
@@ -142,7 +153,7 @@ def kmeans(x, y, kx, ky, fig):
 
     # stop criteria
     if nkx == list(kx) and nky == (ky):
-        return team #這邊原本是只有return
+        return team 
     else:
         fig += 1
         return kmeans(x, y, nkx, nky, fig)
