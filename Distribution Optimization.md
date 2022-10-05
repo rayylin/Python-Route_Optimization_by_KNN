@@ -59,7 +59,7 @@
 	table.to_csv("belong_t.csv")
 
 
-# Applied K-Means
+# Applied KNN
 ---
 	import numpy as np
 	import matplotlib.pyplot as plt
@@ -80,7 +80,7 @@
 	def dis(x, y, kx, ky):
 	    return haversine([x,y],[kx,ky]) #如果不是經緯度的話這邊要換成((x0-x1)^2+(y0-y1)^2)^0.5
 
-# clustering
+# Clustering
 ---
 	def cluster(x, y, kx, ky):
 
@@ -119,7 +119,7 @@
 		nky.append(i[1])
 	    return nkx, nky
 
-# k-means 
+# KNN
 ---
 	def kmeans(x, y, kx, ky, fig):
 	    team = cluster(x, y, kx, ky)
