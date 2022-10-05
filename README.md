@@ -1,6 +1,6 @@
 # Route-Optimization-by-KNN
 We have the demand of each state and apply KNN to assign an appropriate distribution center
-Have a look of the raw data (2019), and data of 2018 and 2020 is similar.
+Have a look of the raw data 
 ![image](https://user-images.githubusercontent.com/58899897/194108411-759fbb19-d00c-4d3f-a734-7ed6a6c52f88.png)
 
 Use Python to preprocess the raw data
