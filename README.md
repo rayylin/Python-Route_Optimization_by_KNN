@@ -1,12 +1,12 @@
 # Route-Optimization-by-KNN
-Case: a company want to build a new distribution center and would like to know which state is the best candidate.
+Case: a company wants to build a new distribution center and would like to know which state is the best candidate.
 We have the demand of each state and apply KNN to assign each state an appropriate distribution center
 
-Have a look of the raw data 
+Have a look at the raw data 
 ![image](https://user-images.githubusercontent.com/58899897/194108411-759fbb19-d00c-4d3f-a734-7ed6a6c52f88.png)
 
 Use Python to preprocess the raw data
-If we use append, the dataframe would look like this 
+If we use append, the data frame would look like this 
 
 ![image](https://user-images.githubusercontent.com/58899897/194109457-888b42aa-f5c6-491d-9af6-d1900e604556.png)
 
@@ -20,17 +20,17 @@ Then we can visualize the data by Power BI
 
 
 We also have the latitude and longitude of each state, so we could use them to calculate the distance and perform optimization.
-We use havershine package to calculate the distance.
+We use the haversine package to calculate the distance.
 
-This figure shows the result of iterarion 1
+This figure shows the result of iteration 1
 
 ![image](https://user-images.githubusercontent.com/58899897/194111036-8693a322-a2a8-4cd2-bb1f-721ab0fbdb63.png)
 
-The result with 5 distribution centers
+The result of 5 distribution centers
 
 ![image](https://user-images.githubusercontent.com/58899897/194111312-1343bcfa-6b57-43b6-9aa4-73dfbd5c28c5.png)
 
-The result with 6 distribution centers
+The result of 6 distribution centers
 
 ![image](https://user-images.githubusercontent.com/58899897/194111244-4159b9ba-326d-4752-881e-f3d75464a5dd.png)
 
