@@ -1,5 +1,5 @@
 # Route-Optimization-by-KNN
-Case: a company wants to build a new distribution center and would like to know which state is the best candidate.
+Project Detail: a company wants to build a new distribution center and would like to know which state is the best candidate.
 We have the demand of each state and apply KNN to assign each state an appropriate distribution center.
 
 Have a look at the raw data:
